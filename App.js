@@ -1,48 +1,78 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { 
+  View, 
+  StyleSheet, 
+  Text, 
+  SafeAreaView,
+  Pressable
+} from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const AppButton = ({ onPress, icon, title, backgroundColor }) => (
-  <View style={styles.appButtonContainer}>
-    <Icon.Button
-      name={icon}
-      backgroundColor={backgroundColor}
-      onPress={onPress}
-      style={styles.appButton}
-    >
-      <Text style={styles.appButtonText}>{title}</Text>
-    </Icon.Button>
-  </View>
-);
+
+const cp = {
+  white : '#EFFFFB',
+  black : '#272727',
+  blue : '#4F98CA',
+  green : '#50D890'
+}
 
 // TouchableOpacity.defaultProps = { activeOpacity: 0.3 };
 const App = () => {
   return (
-    <View style={styles.screenContainer}>
-      <AppButton icon="sign-in" title="Login with password" backgroundColor="#777"/>
-      <AppButton icon="facebook" title="Login with Facebook" backgroundColor="#3b5998"/>
-      <AppButton icon="github" title="Login with GitHub" backgroundColor="#6e5494"/>
-    </View>
+    <>    
+
+    <View style = {styles.screenContainer}>
+
+    </View>      
+    <SafeAreaView style = {styles.SafeView}>
+        <Pressable 
+          style = {styles.CustomButton}
+          onPress={() => {
+            console.log("1");
+          }}
+        />
+                <Pressable 
+          style = {styles.CustomButton}
+          onPress={() => {
+            console.log("2");
+          }}
+        />
+                <Pressable 
+          style = {styles.CustomButton}
+          onPress={() => {
+            console.log("3");
+          }}
+        />
+                <Pressable 
+          style = {styles.CustomButton}
+          onPress={() => {
+            console.log("4");
+          }}
+        />
+      </SafeAreaView>
+    </>    
   );
 };
 
 const styles = StyleSheet.create({
   screenContainer: {
+    flex: 8,
+    backgroundColor: cp.white,
+  },
+  SafeView:{
     flex: 1,
-    justifyContent: "center",
-    padding: 80,
-    backgroundColor: "#555",
+    backgroundColor: cp.black,
+    justifyContent: 'space-between',
+    alignItems: "center",
+    flexDirection : 'row',
   },
-  appButton: {
-    padding: 12,
-  },
-  appButtonText: {
-    fontSize: 17,
-  },
-  appButtonContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-  },
+  CustomButton : {
+    backgroundColor : cp.green,
+    height : '80%',
+    width: '20%', 
+    borderRadius : 5,
+    margin: 5,
+  }
 });
 
 export default App;
