@@ -4,10 +4,11 @@ import {
   StyleSheet, 
   Text, 
   SafeAreaView,
-  Pressable
+  Pressable,
+  ScrollView
 } from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome';
-
+import NavFoot from "./components/NavFoot";
+import { MaterialIcons } from '@expo/vector-icons'; 
 
 const cp = {
   white : '#EFFFFB',
@@ -16,40 +17,35 @@ const cp = {
   green : '#50D890'
 }
 
+let scroolsize = "100%";
+let othersize = 450;
+
+let icon_size = 40;
 // TouchableOpacity.defaultProps = { activeOpacity: 0.3 };
 const App = () => {
   return (
     <>    
 
     <View style = {styles.screenContainer}>
+      {/* <Homepage /> */}
+      <ScrollView style = {styles.sidescroll}  >
+        <View style = {styles.v1}>
 
+        </View>
+        <View style = {styles.v2}>
+
+        </View>
+        <View style = {styles.v3}>
+
+        </View>
+        <View style = {styles.v4}>
+          <Text>
+            Connor
+          </Text>
+        </View>
+      </ScrollView>
     </View>      
-    <SafeAreaView style = {styles.SafeView}>
-        <Pressable 
-          style = {styles.CustomButton}
-          onPress={() => {
-            console.log("1");
-          }}
-        />
-                <Pressable 
-          style = {styles.CustomButton}
-          onPress={() => {
-            console.log("2");
-          }}
-        />
-                <Pressable 
-          style = {styles.CustomButton}
-          onPress={() => {
-            console.log("3");
-          }}
-        />
-                <Pressable 
-          style = {styles.CustomButton}
-          onPress={() => {
-            console.log("4");
-          }}
-        />
-      </SafeAreaView>
+    <NavFoot/>
     </>    
   );
 };
@@ -61,7 +57,7 @@ const styles = StyleSheet.create({
   },
   SafeView:{
     flex: 1,
-    backgroundColor: cp.black,
+    backgroundColor: cp.green,
     justifyContent: 'space-between',
     alignItems: "center",
     flexDirection : 'row',
@@ -72,7 +68,43 @@ const styles = StyleSheet.create({
     width: '20%', 
     borderRadius : 5,
     margin: 5,
-  }
+    justifyContent : 'center',
+    alignItems: 'center',
+  },
+  sidescroll : {
+    height : '100%'
+    // backgroundColor : cp.black,
+    // flexDirection : 'row'
+    // width : '100%',
+  },
+  v1 : {
+    height : othersize,
+    backgroundColor : cp.white,
+    justifyContent : 'center',
+    alignItems : 'center',
+    width : scroolsize,
+  },
+  v2 : {
+    height : othersize,
+    backgroundColor : cp.black,
+    justifyContent : 'center',
+    alignItems : 'center',
+    width : scroolsize,
+  },
+  v3 : {
+    height : othersize,
+    backgroundColor : cp.green,
+    justifyContent : 'center',
+    alignItems : 'center',
+    width : scroolsize,
+  },
+  v4 : {
+    height : othersize,
+    backgroundColor : cp.blue,
+    justifyContent : 'center',
+    alignItems : 'center',
+    width : scroolsize,
+  },
 });
 
 export default App;
